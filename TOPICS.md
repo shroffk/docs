@@ -6,4 +6,5 @@
     - Discuss alternative options
 - Demo02 server config for more work to be done on ADO-EPICS bridge 
 - Demo03 setup for TAPE sequencer
- 
+- Exploration into CI/CD
+- Documentation solutions & plans
