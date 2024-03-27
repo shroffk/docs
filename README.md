@@ -15,13 +15,15 @@
 
 ### 2. Hosts
 
-| Hostname              | IP            | Main User/Owner | OS Version | Use                                        |
-| --------------------- | ------------- | --------------- | ---------- | ------------------------------------------ |
-| alarmdemo.eic.bnl.gov | 130.199.97.28 | seth            | CentOS 9   | Alarm services                             |
-| demo01.eic.bnl.gov    | 130.199.97.30 | Kunal           | CentOS 9   | Ansible controller, Phoebus Alarm Services |
-| demo02.eic.bnl.gov    | 130.199.97.36 | Kunal           | CentOS 8   | EPICS base + basic support modules         |
-| demo03.eic.bnl.gov    | 130.199.97.37 | free            | CentOS 8   | (Specify the use)                          |
-| demo04.eic.bnl.gov    | 130.199.97.38 | free            | CentOS 8   | (Specify the use)                          |
+| Hostname                     | IP            | Main User/Owner  | OS Version | Use                                        |
+| ---------------------------- | ------------- | ---------------- | ---------- | ------------------------------------------ |
+| alarmdemo.eic.bnl.gov        | 130.199.97.28 | seth             | CentOS 9   | Alarm services                             |
+| demo01.eic.bnl.gov           | 130.199.97.30 | Kunal            | CentOS 9   | Ansible controller, Phoebus Alarm Services |
+| demo02.eic.bnl.gov           | 130.199.97.36 | Kunal            | CentOS 8   | EPICS base + basic support modules         |
+| demo03.eic.bnl.gov           | 130.199.97.37 | free             | CentOS 8   | (Specify the use)                          |
+| demo04.eic.bnl.gov           | 130.199.97.38 | free             | CentOS 8   | (Specify the use)                          |
+| sequencerdev.eic.bnl.gov     | 130.199.97.38 | Sam              | CentOS 8   | Sequencer Dev and Demo (&check; Desktop/GUI )  |
+| ologdev.eic.bnl.gov          | 130.199.97.38 | Kunal            | CentOS 8   | Olog Dev and Demo ( &check; Desktop/GUI )       |
 
 ### 3. User Credentials
 
@@ -36,4 +38,8 @@ Each VM is allocated:
 * **Cores:** 4
 * **Storage:** 55GB
 
+### 5. VM Remote Access
+* All servers will have basic X11 Fowarding capabilities over SSH
+* All servers with Desktop/GUIs will have xrdp package installed for remote access via RDP Protocol (Microsoft RDP, remminia, xfreerdp clients compatible)
+  
 Feel free to adjust and add more details based on your specific requirements. If you have additional information or specific areas you'd like to focus on, let me know!\
