@@ -34,3 +34,6 @@ Proposal: 3 part training course
 - working with submodules
 - cmake
 - java? maven?
+
+### Meeting Notes
+04/10/2024
