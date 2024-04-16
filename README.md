@@ -4,6 +4,7 @@ Documentation repo for the EIC controls. The repo consists information about the
 
 * [Infrastructure](eic-deployment/infrastructure.md)
 * [Ansible](eic-deployment/ansible/ansible.md)
+<<<<<<< HEAD
 
 
 <<<<<<< HEAD
@@ -45,3 +46,5 @@ Each VM is allocated:
   
 Feel free to adjust and add more details based on your specific requirements. If you have additional information or specific areas you'd like to focus on, let me know!\
 >>>>>>> branch 'master' of git@github.com:eicorg/docs.git
+=======
+>>>>>>> branch 'ansible' of https://github.com/shroffk/docs.git
