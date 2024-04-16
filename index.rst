@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Welcome to EIC Control's documentation!
-===================================
+=======================================
 
 .. toctree::
    :maxdepth: 2
@@ -14,11 +14,7 @@ Welcome to EIC Control's documentation!
    README
    SUMMARY
    TOPICS
-   ansible
    GIT
-   
-	     
-
 
 ..
    Indices and tables
