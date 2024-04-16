@@ -1,12 +1,14 @@
-# Infrastructure
+# Documentation for EIC
 
-### 1. Network Configuration
+Documentation repo for the EIC controls. The repo consists information about the EIC controls infrastructure, tools, ans services.
 
-#### 1.1 Interface 1
+* [Infrastructure](eic-deployment/infrastructure.md)
+* [Ansible](eic-deployment/ansible/ansible.md)
+<<<<<<< HEAD
 
-* **IP Range:** 130.199.96.0/23
-* **DHCP Services:** Provided by ITD
 
+<<<<<<< HEAD
+=======
 #### 1.2 Interface 2
 
 * **IP Range:** 172.16.52.0/24
@@ -43,3 +45,6 @@ Each VM is allocated:
 * All servers with Desktop/GUIs will have xrdp package installed for remote access via RDP Protocol (Microsoft RDP, remminia, xfreerdp clients compatible)
   
 Feel free to adjust and add more details based on your specific requirements. If you have additional information or specific areas you'd like to focus on, let me know!\
+>>>>>>> branch 'master' of git@github.com:eicorg/docs.git
+=======
+>>>>>>> branch 'ansible' of https://github.com/shroffk/docs.git
