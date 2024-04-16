@@ -58,3 +58,23 @@ ansible-playbook -i /opt/ansible/ansible-eic/inventory.ini -u root /opt/ansible/
 ```
 
 Adjust the parameters as needed for your specific deployment requirements. This playbook orchestrates the deployment of Phoebus on the specified hosts.
+
+### 4: Deploying Phoebus Alarm Services
+
+To deploy Phoebus Alarm Services in your infrastructure using Ansible, execute the following Ansible playbook command:
+
+```bash
+ansible-playbook -i /opt/ansible/ansible-eic/inventory.ini --limit alarm-server -u root /opt/ansible/ansible-eic/alarm.yml
+```
+
+Adjust the parameters as needed for your specific deployment requirements. This playbook orchestrates the deployment of Phoebus on the specified hosts.
+
+### 4: Deploying Archiver Appliance
+
+To deploy Archiver Appliance Services in your infrastructure using Ansible, execute the following Ansible playbook command:
+
+```bash
+ansible-playbook -i /opt/ansible/ansible-eic/inventory.ini --limit alarm-server -u root /opt/ansible/ansible-eic/aa.yml
+```
+
+Adjust the parameters as needed for your specific deployment requirements. This playbook orchestrates the deployment of Phoebus on the specified hosts.
