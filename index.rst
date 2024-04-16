@@ -10,7 +10,7 @@ Welcome to EIC Control's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   Documentation   
+   Documentation
    README
    SUMMARY
    TOPICS
