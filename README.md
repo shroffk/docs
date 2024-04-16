@@ -4,5 +4,3 @@ Documentation repo for the EIC controls. The repo consists information about the
 
 * [Infrastructure](eic-deployment/infrastructure.md)
 * [Ansible](eic-deployment/ansible/ansible.md)
-
-
