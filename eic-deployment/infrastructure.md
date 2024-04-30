@@ -26,7 +26,7 @@
 ### 3. User Credentials
 
 * **User:** eicuser
-* **Password:** eicuser!!!
+* **Password:** XXXXXX
 
 ### 4. VM Specifications
 
