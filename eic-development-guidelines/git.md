@@ -4,12 +4,12 @@
 This guide serves as a summary of [Atlassian's Git Tutorial](https://www.atlassian.com/git/glossary#commands)
 
 For more tutorials:
-* [https://www.jetbrains.com/help/clion/using-git-integration.html CLion Git Tutorial]
-* [https://code.visualstudio.com/docs/sourcecontrol/intro-to-git VSCode Git Tutorial]
-* [https://www.jetbrains.com/help/pycharm/using-git-integration.html PyCharm Git Tutorial]
-* [https://www.jetbrains.com/help/idea/using-git-integration.html IntelliJ Git Tutorial]
-* [https://ohmygit.org OhMyGit]
-* [https://learngitbranching.js.org Learn Git Branches]
+- [CLion Git Tutorial](https://www.jetbrains.com/help/clion/using-git-integration.html)
+- [VSCode Git Tutorial](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git)
+- [PyCharm Git Tutorial](https://www.jetbrains.com/help/pycharm/using-git-integration.html)
+- [IntelliJ Git Tutorial](https://www.jetbrains.com/help/idea/using-git-integration.html)
+- [OhMyGit](https://ohmygit.org)
+- [Learn Git Branches](https://learngitbranching.js.org)
 
 
 ### git clone
@@ -89,7 +89,6 @@ Git pull is used to fetch and download content from a remote repository and imme
 - git pull
 - git pull --no-commit <remote>
 - git pull --rebase <remote>
- 
 
 ### git diff
 Used for taking 2 git data sources and comparing them. These data sources include: commits, branches, files, and more. By default git diff will show you any uncommitted changes since the last commit. 
@@ -98,16 +97,12 @@ Used for taking 2 git data sources and comparing them. These data sources includ
 - git diff branch1 branch2 <file name>
 
 ### git status
+Git status displays the current state of the working directory and the staging area. It lets you see which changes have been staged, which haven't, and which files aren't being tracked by Git. Status output does not show you any information regarding commit project history, for this use git log.
 
-### merge requests
-
-### merge conflicts
-
-### pull requests
-
-### rebase
-
-### reset
-
-### revert
+### git reset
+Git reset is a command used for undoing changes. It is useful when you want to undo commits that have not been pushed to a remote repository. Also a useful command to remove commits that contain mistakes or are no longer necessary.
+**Three primary forms**
+- soft - updates reference pointers but leaves the changes untouched in the staging area and working directory
+- mixed - (default) staging index is reset, these changes are moved to the working directory
+- hard - any pending work that was in the staging area and working directory will be lost
 
