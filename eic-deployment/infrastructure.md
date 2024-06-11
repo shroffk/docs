@@ -22,6 +22,7 @@
 | demo02.eic.bnl.gov    | 130.199.97.36 | Kunal           | CentOS 8   | EPICS base + basic support modules         |
 | demo03.eic.bnl.gov    | 130.199.97.37 | free            | CentOS 8   | (Specify the use)                          |
 | demo04.eic.bnl.gov    | 130.199.97.38 | free            | CentOS 8   | (Specify the use)                          |
+| demo05.eic.bnl.gov    | 130.199.97.71 | Jen             | CentOS 8   | MLflow testing / Pheobus testing           |
 
 ### 3. User Credentials
 
