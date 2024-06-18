@@ -31,6 +31,7 @@ NOTE: The steps below describes the EXTRA steps from this original setup documen
 https://www.cadops.bnl.gov/Controls/doc/elogweb/OSS/Elog_Manual_For_Payara5.html
 
 On csmaster, scp files over:
+```bash
 scp /home/cfsd/sysadmin/REPO/WS8-1.custom/jdk-8u301-linux-x64.rpm eicuser@demo03.eic.bnl.gov:/tmp/
 scp /home/cfsd/sysadmin/REPO/WS8-1.custom/mysql*.rpm eicuser@demo03.eic.bnl.gov:/home/here/zaiwen/mysqlrpms/
 scp /ride/database/mysql/Resources/Software/mysql-5.7.18/mysql-5.7.18-linux-glibc2.5-x86_64.tar.gz eicuser@demo.eic.bnl.gov:/home/here/mysql/
@@ -38,6 +39,7 @@ scp /ride/WebAppServers/Payara/payara-5.2020.6.zip eicuser@demo03.eic.bnl.gov:/h
 scp /home/cfsd/sysadmin/ThirdPartyApp/firefox/firefox-121.0.tar.bz2  eicuser@demo03.eic.bnl.gov:/opt/
  scp /usr/controls/bin/PrintUtility* eicuser@demo03.eic.bnl.gov:/usr/cntrols/bin/
 scp /home/cfsd/sysadmin/templates/Linux/Installation/Centrify580/installer/centrify-rhel6-x86_64.tar eicuser@demo03.eic.bnl.gov:/tmp/
+```
 
 #### On EIC demo03.eic.bnl.gov:
 
@@ -70,10 +72,12 @@ so we make a symlink:
 We can't login as root without password.
 Figured out it is RH8's more strict security polidy. If run with "--initialize-insecure", the initialization will be aborted.
 
-For RH7:  sudo bin/mysqld --initialize-insecure --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/dbdata
+For RH7:  
+sudo bin/mysqld --initialize-insecure --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/dbdata
        2024-04-16T18:51:14.425070Z 1 [Warning] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
 
-For RH8: sudo bin/mysqld --initialize --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/dbdata
+For RH8: 
+sudo bin/mysqld --initialize --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/dbdata
        2024-04-17T15:41:07.668315Z 1 [Note] A temporary password is generated for root@localhost: -p7>6#lowDOw
 
 #### Fix password policy:
@@ -117,16 +121,27 @@ yum install tcsh
 
 #### Install autofs
 yum install autofs
+
 vi /etc/auto.master
+
        /cfs    /etc/auto.cfs   --timeout 60 --vers=3
+
 vi /etc/auto.cfs
+
        ad   -rw,hard,intr cfsd.pbn.bnl.gov:/cfsad
+
 systemctl enable autofs
+
 systemctl start autofs
+
 Add demo03.eic.bnl.gov to netgroup
+
 sudo ln -s /cfs/ad /home/cfsa
+
 sudo ln -s /cfs/ad /home/cfsad
+
 sudo ln -s /cfs/ad /home/cfsd
+
 BUT, demo03.eic.bnl.gov can't ping cfsd.pbn.bnl.gov
 
 #### Install Centrify
