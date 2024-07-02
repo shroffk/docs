@@ -61,13 +61,13 @@ If a system does not follow the 'generic' template:
 			- Each process that makes up the system is entered on a line
 			- Each line in the file contains 6 values, comma-separated
 		(Comments are from the PerformProcess.pl file)
-		# 1) SystemName
-		# 2) The path to the program
-		# 3) Start or Check String (in quotes) - A specific string used to start the server or check if the server is running (for distinguishing servers with same name, different instance)
-		# 4) Alternate Check String (in quotes) - in case the start/check string in 3 runs a script, then the check may really need to be customized
-		# 5) Error File Specification or extra arguments to start command - (This may be NONE)
-		# 6) The Server Name (to distinguish from other servers that belong to the same system
-		# 7) A specialized stop command - (This may be NONE)
+		1) SystemName
+		2) The path to the program
+		3) Start or Check String (in quotes) - A specific string used to start the server or check if the server is running (for distinguishing servers with same name, different instance)
+		4) Alternate Check String (in quotes) - in case the start/check string in 3 runs a script, then the check may really need to be customized
+		5) Error File Specification or extra arguments to start command - (This may be NONE)
+		6) The Server Name (to distinguish from other servers that belong to the same system
+		7) A specialized stop command - (This may be NONE)
 	A system 'environment' file MAY be created
 		- $ACTION_SCRIPT_BASE/system/$locSystemName/environment
 		- This file is sourced prior to starting each process on an associated line        
