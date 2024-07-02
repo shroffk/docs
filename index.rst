@@ -14,7 +14,9 @@ Welcome to EIC Control's documentation!
    README
    SUMMARY
    TOPICS
-   GIT
+   eic-development-guidelines/git.md
+   eic-deployment/elogserver.md
+   eic-deployment/infrastructure.md
 
 ..
    Indices and tables
