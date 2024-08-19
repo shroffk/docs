@@ -1,6 +1,10 @@
 # Documentation for EIC
 
-Documentation repo for the EIC controls. The repo consists information about the EIC controls infrastructure, tools, ans services.
+Source repo for the [EIC docs repo](https://eic.readthedocs.io/en/latest/)
 
-* [Infrastructure](eic-deployment/infrastructure.md)
-* [Ansible](eic-deployment/ansible/ansible.md)
+Documentation repo for the EIC controls. The repo consists information about the EIC controls infrastructure, tools, and services.
+
+The documentation automatically built and published on readthedocs.
+
+
+
