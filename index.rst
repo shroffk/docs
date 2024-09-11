@@ -17,6 +17,7 @@ Welcome to EIC Control's documentation!
    eic-development-guidelines/git.md
    eic-deployment/elogserver.md
    eic-deployment/infrastructure.md
+   ado-epics-bridge/ado-epics-bridge.md
 
 ..
    Indices and tables
