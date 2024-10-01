@@ -23,7 +23,8 @@
 | demo02.eic.bnl.gov    | 130.199.97.36 | Kunal           | CentOS 8   | EPICS base, ChannelFinder, Save & Restore               |
 | demo03.eic.bnl.gov    | 130.199.97.37 | Kunal           | CentOS 8   | EPICS base, Phoebus Olog, Webclient                     |
 | demo04.eic.bnl.gov    | 130.199.97.38 | free            | CentOS 8   | (Specify the use)                                       |
-| demo05.eic.bnl.gov    | 130.199.97.71 | Jen             | CentOS 8   | MLflow testing / Pheobus testing                        |
+| demo05.eic.bnl.gov    | 130.199.97.71 | free            | CentOS 8   | MLflow testing / Phoebus testing                        |
+| demo05.eic.bnl.gov    | 130.199.97.72 | free            | CentOS 8   | MLflow testing                                          |
 
 ### 3. User Credentials
 
