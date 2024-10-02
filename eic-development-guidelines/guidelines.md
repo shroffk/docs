@@ -1,4 +1,4 @@
-#Git Guidelines and Conventions
+# Git Guidelines and Conventions
 
 ## Git repository naming convention for EIC projects
 
