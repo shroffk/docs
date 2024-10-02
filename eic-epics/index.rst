@@ -3,17 +3,15 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to EIC Control's documentation!
-=======================================
+EIC EPICS
+=========
 
 .. toctree::
    :maxdepth: 2
    :glob:
 
-   eic-development-guidelines/index*
-   eic-deployment/index*
-   eic-epics/index*
-   ado-epics-bridge/index*
+   *
+   */*
 
 ..
    Indices and tables

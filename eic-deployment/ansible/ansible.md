@@ -1,6 +1,6 @@
 # Ansible
 
-### Ansible Configuration and Usage
+## Ansible Configuration and Usage
 
 ### 1. Ansible Controller: demo01.eic.bnl.gov
 
@@ -69,7 +69,7 @@ ansible-playbook -i /opt/ansible/ansible-eic/inventory.ini --limit alarm-server 
 
 Adjust the parameters as needed for your specific deployment requirements.
 
-### 4: Deploying Archiver Appliance
+### 5: Deploying Archiver Appliance
 
 To deploy Archiver Appliance Services in your infrastructure using Ansible, execute the following Ansible playbook command:
 
@@ -79,7 +79,7 @@ ansible-playbook -i /opt/ansible/ansible-eic/inventory.ini --limit alarm-server 
 
 Adjust the parameters as needed for your specific deployment requirements.
 
-### 5: Deploying Save and Restore
+### 6: Deploying Save and Restore
 
 To deploy Save and Restore Services in your infrastructure using Ansible, execute the following Ansible playbook command:
 
@@ -89,7 +89,7 @@ ansible-playbook -i /opt/ansible/ansible-eic/inventory.ini --limit save-restore 
 
 Adjust the parameters as needed for your specific deployment requirements.
 
-### 6: Deploying Archiver Appliance
+### 7: Deploying Archiver Appliance
 
 To deploy ChannelFinder Services in your infrastructure using Ansible, execute the following Ansible playbook command:
 

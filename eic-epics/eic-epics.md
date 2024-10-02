@@ -1,5 +1,4 @@
-
-# EPICS
+# EIC EPICS
 
 ## How to install
 
