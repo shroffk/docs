@@ -18,4 +18,3 @@
 ![image](eic-diagrams/epics-ado-alarms.svg)
 
 [Raw Diagram](https://excalidraw.com/#room=89b9460513a516250ed7,mDWkTZnf--_jrobcXLNkOQ)
-
