@@ -15,6 +15,6 @@
 
 ### 4. ADO - EPICS Alarm Architecture
 
-![image](eic-diagrams/epics-ado-alarms.svg)
+![image](eic-diagrams/epics-ado-alarms-2.svg)
 
 [Raw Diagram](https://excalidraw.com/#room=89b9460513a516250ed7,mDWkTZnf--_jrobcXLNkOQ)
