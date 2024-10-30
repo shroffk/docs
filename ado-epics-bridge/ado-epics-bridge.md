@@ -89,32 +89,38 @@ adoIfA simple.eic sinM
 ```
 Property name and/or the PPM index may be omitted for brevity when the "value" property, or PPM 0 is intended.
 
-- **6. Use `pvget` and `pvput` to monitor/set PVs corresponding to the ADO parameters** 
+- **7. Use `pvget` and `pvput` to monitor/set PVs corresponding to the ADO parameters** 
 
 ```
 pvget simple.eic:degM
 pvput simple.eic:hexAddrS 0x1
 ```
 
-- **7. Use Phoebus to monitor ADO parameters.**
+- **8. Use Phoebus to monitor ADO parameters.**
 	- Open the `opi/simpleMan.bob` file using Phoebus.
 
-- **8. Change ADO parameter using Phoebus and monitor using adoIfA to confirm**
+- **9. Change ADO parameter using Phoebus and monitor using adoIfA to confirm**
 	- Open the `opi/simpleMan.bob` file using Phoebus and change any parameter while running `adoIfA` for that parameter from another terminal.
 
-- **9. Change ADO parameter using adoIf and confirm using Phoebus**
+- **10. Change ADO parameter using adoIf and confirm using Phoebus**
 	- Open the `opi/simpleMan.bob` file using Phoebus and change any parameter using `adoIf`.
 
-- **10. Use clients apps installed on CAD machine to access ADO running on EIC VM**
+- **11. Use clients apps installed on CAD machine to access ADO running on EIC VM**
 	- Set CNSHOST and CNSHOSTBACKUP environment to the cns host on EIC machine.
 	- Add eic.bnl.gov to dns-search
 	- use `adoPet` to open ADO running on EIC VM: `adoPet simple.eic`
 
-- **11. Archive ADO parameter using EPICS archiver.**
-	- Go to the EPICS archiver page [here](http://demo01.eic.bnl.gov:10065/mgmt/ui/index.html)
-	- Add the desired PV to archive
+- **12. Archive ADO parameter using EPICS archiver.**
+        - Go to the EIC EPICS archiver management page [here](http://demo01.eic.bnl.gov:10065/mgmt/ui/index.html)
+	- Add the desired PV to archive. You can use steps 4 and 6 to know list of available PVs derived from the ADO parameters. 
+	- You need to add `pva://` before the PV name to indicate PVaccess protocol (for any ado-epics bridge). You do not need to add this for PVs using channel access protocol.
+	- For example, try adding `pva://simple.eic:degM` and start archiving. The status should change to "Being archived" after a while. The "Connected?" and "Monitored?" statuses should change to "true". 
+	- If archiving successfully, the "Details" and "Quick chart" buttons will be available.
+	- Try to plot by clicking on the `Quick chart` button. By default it will fail to get the data. You will have to remove `pva://` part from the URL and it should work.
+	For example use [this](http://demo01.eic.bnl.gov:10068/retrieval/ui/viewer/archViewer.html?pv=simple.eic%3AdegM) link to see the archived data for `pva://simple.eic:degM`. 
+	- The same is true for the "Details" button i.e. you need to remove the `pva://` part from the URL.
 
-- **12. Demonstrate alarm functionality using EPICS alarm service**
+- **13. Demonstrate alarm functionality using EPICS alarm service**
 
 
 
