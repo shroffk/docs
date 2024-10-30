@@ -112,7 +112,7 @@ pvput simple.eic:hexAddrS 0x1
 
 - **12. Archive ADO parameter using EPICS archiver.**
         - Go to the EIC EPICS archiver management page [here](http://demo01.eic.bnl.gov:10065/mgmt/ui/index.html)
-	- Add the desired PV to archive. You can use steps 4 and 6 to know list of available PVs derived from the ADO parameters. 
+	- Add the desired PV to archive. You can use steps 4 and 6 to know the list of available PVs derived from the ADO parameters. 
 	- You need to add `pva://` before the PV name to indicate PVaccess protocol (for any ado-epics bridge). You do not need to add this for PVs using channel access protocol.
 	- For example, try adding `pva://simple.eic:degM` and start archiving. The status should change to "Being archived" after a while. The "Connected?" and "Monitored?" statuses should change to "true". 
 	- If archiving successfully, the "Details" and "Quick chart" buttons will be available.
