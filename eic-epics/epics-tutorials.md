@@ -70,11 +70,11 @@ In the above example, the path to the ioc executable is already given as the com
 
 - On any EIC VM, go to the directory `/eic/opt/epics-iocs/streamDevSim`.
 
-- The file `run_sim_dev.py` can be considered a simulated stream device hardware. You can start it using `python run_sim_dev.py` and it will start the server at `localhost:5000`. Once started, you can try to connect to the port `localhost:5000`, and for any read/write request (writing anything) sent to this port, it will return a temperature and humidity value.
+- The file `run_sim_dev.py` can be considered a simulated stream device hardware. You can start it using `python3 run_sim_dev.py` and it will start the server at `localhost:5000`. Once started, you can try to connect to the port `localhost:5000`, and for any read/write request (writing anything) sent to this port, it will return a temperature and humidity value.
 
 - The IOC app creates an IOC that uses `calc`, `asyn` and 'stream` EPICS modules to talk to the simulated StreamDevice synchronously/asynchronously.
 
-- Once you have IOC executable, run the simulated stream device (HW) from one terminal using `python run_sim_dev.py` and from another terminal start your IOC and look at the corresponding PVs.
+- Once you have IOC executable, run the simulated stream device (HW) from one terminal using `python3 run_sim_dev.py` and from another terminal start your IOC and look at the corresponding PVs.
 
 - Starting the IOC:
   - `cd streamDevSim/exIOC/iocBoot/iocexIOC`.
