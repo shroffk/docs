@@ -1,6 +1,6 @@
 # EPICS Tutorials
 
-## Creating a demo/test ioc to test ca and pva
+## Creating a demo/test ioc
 
 - The following instructions explain how to create a test IOC on any EIC VM where the epics-base is already installed.
 
@@ -13,7 +13,7 @@ make
 cd iocBoot/ioctestIoc
 chmod u+x st.cmd
 ./st.cmd
-# Next few lines are just output on epics-shell. You can just to the prompt (epics>)
+# Next few lines are just output on epics-shell. You can ignore and jump to the prompt (epics>)
 #!../../bin/darwin-x86/testIoc
 < envPaths
 epicsEnvSet("IOC","ioctestIoc")
