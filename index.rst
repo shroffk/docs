@@ -8,6 +8,7 @@ Welcome to EIC Control's documentation!
 
 .. toctree::
    :maxdepth: 2
+   :caption: Contents:
    :glob:
 
    eic-development-guidelines/index*
