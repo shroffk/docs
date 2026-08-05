@@ -89,7 +89,7 @@ Detailed setup documentation is here: https://github.com/eicorg/proxmox_eval
 - Hardware: 3x HP Z2 G5 SFF Desktop machines
 - Storage: See below
 - SSH: Yes. But use web interface.
-- Web Interface: https://prox01.eic.bnl.gov:8006, https://prox03.eic.bnl.gov:8006, https://prox03.eic.bnl.gov:8006
+- Web Interface: https://prox01.eic.bnl.gov:8006, https://prox02.eic.bnl.gov:8006, https://prox03.eic.bnl.gov:8006
 
 **Backup**  
 https://proxbackup.eic.bnl.gov:8007
