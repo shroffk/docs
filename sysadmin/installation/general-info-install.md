@@ -1,3 +1,6 @@
+# IP Request  
+https://info.itd.bnl.gov/cgi-bin/ipdns/ipreg/single
+
 # Create object in Centrify Access Manager -- needs domain admin privilages
 Define hostname in zone:  
 ```
