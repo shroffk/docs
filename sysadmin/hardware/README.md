@@ -116,7 +116,7 @@ Details: https://github.com/eicorg/proxmox_eval/blob/main/phase8-proxmox-backup-
 - Hardware: 5x Dell R70 Servers
 - Storage: Each machine as 4x 2.5" 250 GB Intel SSD drives. Additional drive bays are available for adding storage. Currently drives are JBOD, can be configured as raid.
 - RAM: Each machine has 256 GB (8x 32GB modules)
-- CPU: 2x Intel Xeon Silver 4116  
+- CPU: 2x Intel Xeon Silver 4116 (12-core, 24-thread)
   https://www.intel.com/content/www/us/en/products/sku/120481/intel-xeon-silver-4116-processor-16-5m-cache-2-10-ghz/specifications.html
 - Network: 4x 1GbE, and 4x 25GbE
 
