@@ -23,7 +23,7 @@ Enabling usage-based GitHub services (e.g., Codespaces, Actions, premium AI feat
 ________________________________________
 <b>Controls Implemented</b><br>
 1. Seat Management (Primary Control)<br>
-Only organization owners (Kunal, Kyle, Seth) can assign Copilot licenses<br>
+Only organization owners (Kunal, Seth) can assign Copilot licenses<br>
 This ensures total cost can only increase through explicit administrative action<br>
 ________________________________________
 2. Hard Limits on Usage-Based Services<br>
