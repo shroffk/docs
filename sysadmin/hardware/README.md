@@ -44,6 +44,8 @@ This is the Supermicro server on the cart behind the server rack. It currently h
 
 The underlying storage setup backing datastore01 is unknown. There isn't any information that I can find on how this is configured via the VMware GUI. It appears to be on the Avago / Megaraid controller, but disk size and raid type are not known. The 12 drive bays in the front of the machine all appear to be in use. At the end of the day it gives us the 21.7TB of storage space noted above.
 
+Note to self: When (if) the machine is ever rebooted, check and note raid setup via bios.
+
 ## FPGA Development
 
 - OS: Proxmox version Virtual Environment 7.4-3
