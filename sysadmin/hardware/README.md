@@ -8,7 +8,7 @@ This is intended as a high-level document to cover physical machines in the EIC 
 - IP: 130.199.97.90
 - DNS: devnas01.eic.bnl.gov
 - Hardware: HP EliteDesk 800 G4 SFF
-- CPU: Intel Core i7-8700 CPU @ 3.20GHz (6-core, 12-thread)
+- CPU: Intel Core i7-8700 CPU @ 3.20GHz (6-core, 12-thread)  
   https://www.intel.com/content/www/us/en/products/sku/126686/intel-core-i78700-processor-12m-cache-up-to-4-60-ghz/specifications.html
 - RAM: 16GB
 - Storage: 2x Samsung SSD 990 PRO 2TB in raid1 (1.8TiB)
@@ -28,7 +28,7 @@ This is a SFF HP desktop that is currently (as of 8/4/26) sitting in the bottom 
 - IP: 130.199.97.3
 - DNS: modernbox.c-ad.bnl.gov
 - Hardware: S2600WFT
-- CPU: 2x Intel Xeon Silver 4214 CPU @ 2.20GHz (12-core, 24-thread)
+- CPU: 2x Intel Xeon Silver 4214 CPU @ 2.20GHz (12-core, 24-thread)  
   https://www.intel.com/content/www/us/en/products/sku/193385/intel-xeon-silver-4214-processor-16-5m-cache-2-20-ghz/specifications.html
 - RAM: 256GB
 - Storage: datastore01, total capacity 21.7TB
@@ -54,7 +54,7 @@ Note to self: When (if) the machine is ever rebooted, check and note raid setup 
 - IP: 130.199.96.153
 - DNS: containers01.c-ad.bnl.gov
 - Hardware: Supermicro HS219-R16H13
-- CPU: 2x AMD EPYC 9274F 24-Core Processor (24-core, 48-thread)
+- CPU: 2x AMD EPYC 9274F 24-Core Processor (24-core, 48-thread)  
   https://www.amd.com/en/products/processors/server/epyc/4th-generation-9004-and-8004-series/amd-epyc-9274f.html
 - RAM: 1024GB
 - Storage: Local disk pool, total storage capacity 13.06TiB
@@ -98,7 +98,7 @@ Detailed setup documentation is here: https://github.com/eicorg/proxmox_eval
 - IP: 130.199.97.157, 130.199.97.115, 130.199.97.138
 - DNS: prox01.eic.bnl.gov, prox02.eic.bnl.gov, prox03.eic.bnl.gov
 - Hardware: 3x HP Z2 G5 SFF Desktop machines
-- CPU: Intel Core i7-10700 CPU @ 2.90GHz (8-core, 16-thread)
+- CPU: Intel Core i7-10700 CPU @ 2.90GHz (8-core, 16-thread)  
   https://www.intel.com/content/www/us/en/products/sku/199316/intel-core-i710700-processor-16m-cache-up-to-4-80-ghz/specifications.html
 - RAM: 16GB
 - Storage: See: https://github.com/eicorg/proxmox_eval/blob/main/phase3-ceph-storage-setup.md
@@ -116,7 +116,8 @@ Details: https://github.com/eicorg/proxmox_eval/blob/main/phase8-proxmox-backup-
 - Hardware: 5x Dell R70 Servers
 - Storage: Each machine as 4x 2.5" 250 GB Intel SSD drives. Additional drive bays are available for adding storage. Currently drives are JBOD, can be configured as raid.
 - RAM: Each machine has 256 GB (8x 32GB modules)
-- CPU: 2x Intel Xeon Silver 4116
+- CPU: 2x Intel Xeon Silver 4116  
+  https://www.intel.com/content/www/us/en/products/sku/120481/intel-xeon-silver-4116-processor-16-5m-cache-2-10-ghz/specifications.html
 - Network: 4x 1GbE, and 4x 25GbE
 
 **Notes**  
