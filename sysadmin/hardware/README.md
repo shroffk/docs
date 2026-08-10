@@ -9,6 +9,7 @@ This is intended as a high-level document to cover physical machines in the EIC 
 - DNS: devnas01.eic.bnl.gov
 - Hardware: HP EliteDesk 800 G4 SFF
 - CPU: Intel Core i7-8700 CPU @ 3.20GHz (6-core, 12-thread)
+  https://www.intel.com/content/www/us/en/products/sku/126686/intel-core-i78700-processor-12m-cache-up-to-4-60-ghz/specifications.html
 - RAM: 16GB
 - Storage: 2x Samsung SSD 990 PRO 2TB in raid1 (1.8TiB)
 - BNL Barcode: 165431
@@ -28,6 +29,7 @@ This is a SFF HP desktop that is currently (as of 8/4/26) sitting in the bottom 
 - DNS: modernbox.c-ad.bnl.gov
 - Hardware: S2600WFT
 - CPU: 2x Intel Xeon Silver 4214 CPU @ 2.20GHz (12-core, 24-thread)
+  https://www.intel.com/content/www/us/en/products/sku/193385/intel-xeon-silver-4214-processor-16-5m-cache-2-20-ghz/specifications.html
 - RAM: 256GB
 - Storage: datastore01, total capacity 21.7TB
 - Has 12 slots for 3.5" hard drives in the front. All appear to be in use.
@@ -53,6 +55,7 @@ Note to self: When (if) the machine is ever rebooted, check and note raid setup 
 - DNS: containers01.c-ad.bnl.gov
 - Hardware: Supermicro HS219-R16H13
 - CPU: 2x AMD EPYC 9274F 24-Core Processor (24-core, 48-thread)
+  https://www.amd.com/en/products/processors/server/epyc/4th-generation-9004-and-8004-series/amd-epyc-9274f.html
 - RAM: 1024GB
 - Storage: Local disk pool, total storage capacity 13.06TiB
 - Has 24 total slots for 2.5" hard drives in the front. 8 are currently in use.
@@ -96,6 +99,7 @@ Detailed setup documentation is here: https://github.com/eicorg/proxmox_eval
 - DNS: prox01.eic.bnl.gov, prox02.eic.bnl.gov, prox03.eic.bnl.gov
 - Hardware: 3x HP Z2 G5 SFF Desktop machines
 - CPU: Intel Core i7-10700 CPU @ 2.90GHz (8-core, 16-thread)
+  https://www.intel.com/content/www/us/en/products/sku/199316/intel-core-i710700-processor-16m-cache-up-to-4-80-ghz/specifications.html
 - RAM: 16GB
 - Storage: See: https://github.com/eicorg/proxmox_eval/blob/main/phase3-ceph-storage-setup.md
 - SSH: Yes. But use web interface.
