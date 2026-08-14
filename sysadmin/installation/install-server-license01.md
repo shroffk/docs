@@ -2,11 +2,15 @@
 
 ****
 
-## **license01.eic.bnl.gov Installation**
+## **license01.eic.bnl.gov Installation**  
 
 ## Overview
 
-FlexLM license installation   
+**Background**
+Kyle set this up in early 2024 when he was investigating different Linux distributions. Kevin's notes say that it is a CentOS 9 machine. I believe it might be a VM on the same host as the eicdemoXX machines. It hosts the FlexLM license server for the Xilinx tools. This machine is up and running, but I cannot ssh to it (using my account, I haven’t tried the eicuser account yet). I think we probably want to make sure this VM is moved, updated, and managed similar to the others.
+
+
+**FlexLM license installation**  
 K. Mernick   
 February 20, 2024   
 
@@ -17,25 +21,19 @@ February 20, 2024
 3.    Create directory for installation: 
 
     sudo mkdir /opt/Xilinx 
-
     sudo chgrp -R developer.con /opt/Xilinx/ 
-
     sudo chmod g+ws /opt/Xilinx/ 
-
     mkdir -p /opt/Xilinx/Vivado_lic/bin 
 
 4.    Unzip the downloaded license tools: 
 
     cd /opt/Xilinx/Vivado_lic/bin 
-
     unzip ~/linux_flexlm_v11.17.2.0.zip 
 
 5.    Fix permissions on unzipped files: 
 
     mv lin_flexlm_v11.17.2.0/lnx64.o/* . 
-
     rm -r lin_flexlm_v11.17.2.0 
-
     chmod +x lmgrd lmutil xilinxd 
 
 6.    Get the hostid by running lmutil lmhostid 
@@ -44,13 +42,12 @@ February 20, 2024
       - Fill in required information on the host, you should see a summary screen like the one below.
       - License file will be emailed. Copy to /opt/Xilinx/Vivado_lic/Xilinx.lic. 
 
-<img width="602" height="420" alt="image" src="https://github.com/user-attachments/assets/cc288090-98c2-4fc9-be84-f1b1b0ef9d35" />
+          <img width="602" height="420" alt="image" src="https://github.com/user-attachments/assets/cc288090-98c2-4fc9-be84-f1b1b0ef9d35" />
 
 
 8.    Create directory for log files: 
 
     mkdir -p /opt/Xilinx/Vivado_lic/logs 
-
     chmod g+w /opt/Xilinx/Vivado_lic/logs/ 
     
 9.    Run the license server manually to check that it works: 
@@ -74,51 +71,33 @@ These steps set up systemd so that the license manager will be started automatic
 1.    Create flexlm user and group 
 
     sudo groupadd flexlm --system 
-
     sudo useradd flexlm -c "FlexLM User" -s /sbin/nologin -g flexlm –system 
-
     sudo chown -R flexlm /opt/Xilinx/Vivado_lic/ 
 
-2.    Create the lmgrd.service file in /etc/systemd/system/ 
-
-    Copy the following contents to the file2: 
-
-[Unit] 
-
-Description=FlexLM license server daemon 
-
-After=network-online.target 
-
- 
-
-[Service] 
-
-Type=simple 
-
-User=flexlm 
-
-WorkingDirectory=/opt/Xilinx/Vivado_lic/ 
-
-ExecStart=/opt/Xilinx/Vivado_lic/bin/lmgrd -z -local -c /opt/Xilinx/Vivado_lic/Xilinx.lic -l +/opt/Xilinx/Vivado_lic/logs/log.txt 
-
-SuccessExitStatus=15 
-
-Restart=always 
-
-RestartSec=30 
-
- 
-
-[Install] 
-
-WantedBy=multi-user.target 
-
+2.    Create the lmgrd.service file in /etc/systemd/system/. Copy the following contents to the file2: 
+    
+        ```bash
+        [Unit] 
+        Description=FlexLM license server daemon 
+        After=network-online.target 
+        
+        [Service] 
+        Type=simple 
+        User=flexlm 
+        WorkingDirectory=/opt/Xilinx/Vivado_lic/ 
+        ExecStart=/opt/Xilinx/Vivado_lic/bin/lmgrd -z -local -c /opt/Xilinx/Vivado_lic/Xilinx.lic -l +/opt/Xilinx/Vivado_lic/logs/log.txt 
+        SuccessExitStatus=15 
+        Restart=always 
+        RestartSec=30  
+        
+        [Install] 
+        WantedBy=multi-user.target
+        ```
  
 
 3.    Enable and start the service 
 
     sudo systemctl enable lmgrd.service 
-
     sudo systemctl start lmgrd.service 
 
  
