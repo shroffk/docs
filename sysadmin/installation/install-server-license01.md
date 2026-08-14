@@ -6,12 +6,10 @@
 
 ## Overview
 
-**Background**
-Kyle set this up in early 2024 when he was investigating different Linux distributions. Kevin's notes say that it is a CentOS 9 machine. I believe it might be a VM on the same host as the eicdemoXX machines. It hosts the FlexLM license server for the Xilinx tools. This machine is up and running, but I cannot ssh to it (using my account, I haven’t tried the eicuser account yet). I think we probably want to make sure this VM is moved, updated, and managed similar to the others.
+**Background**  
+Kyle set this up in early 2024 when he was investigating different Linux distributions. It is a CentOS 9 VM on EIC VMware server (https://130.199.97.3/). It hosts the FlexLM license server for the Xilinx tools. 
 
-
-**FlexLM license installation**  
-K. Mernick   
+**Kevin Mernick's FlexLM license installation Notes**  
 February 20, 2024   
 
 1.    Download “License Management Tools” from https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/2022-2.html. This is at the bottom of the page. It says there is a tar/gzip file for linux, but it is actually a zip file. 
