@@ -1,6 +1,55 @@
-# Ansible
+# Deployment Automation
 
-## Ansible Configuration and Usage
+Tools and services in the EIC infrastructure are deployed with a shared set of Ansible roles and playbooks. There are two ways to run them:
+
+* **AWX** — a web UI on top of Ansible. This is the **preferred** way to deploy things: it provides curated job templates, centralized credentials, inventories, and a history of every job that has run. Start here.
+* **Ansible CLI** — running the playbooks directly from the command line. This is retained for **testing and debugging**, and is useful when developing new roles/playbooks or troubleshooting a deployment.
+
+---
+
+## AWX (preferred)
+
+[AWX](https://ansible.eic.bnl.gov) is the web front end for Ansible automation in the EIC infrastructure. It wraps the same roles and playbooks described below in reusable **job templates**, each pre-configured with the correct project, inventory, credentials, and playbook. Deploying a tool becomes a matter of launching the relevant template and, where prompted, supplying the target host.
+
+Benefits over running the CLI directly:
+
+* No need to install Ansible or manage SSH credentials locally — AWX stores them centrally.
+* Consistent, curated inventories and variables.
+* Every launch is logged, with full job output and history for auditing and troubleshooting.
+* Role-based access control over who can run what.
+
+### Deploying Phoebus with AWX
+
+The **EIC Phoebus** job template installs/updates Phoebus resources. It is available here:
+
+[https://ansible.eic.bnl.gov/#/templates/job_template/44/details](https://ansible.eic.bnl.gov/#/templates/job_template/44/details)
+
+The template is pre-configured with:
+
+* **Project:** EIC EPICS tools and services
+* **Inventory:** All-EIC-Machines
+* **Playbook:** `phoebus.yml`
+* **Credentials:** SSH credentials for the EIC machines
+
+![EIC Phoebus AWX job template details](screenshots/AWX_Phoebus_Template.png)
+
+To deploy Phoebus to a host:
+
+1. Open the [EIC Phoebus template](https://ansible.eic.bnl.gov/#/templates/job_template/44/details).
+2. Click **Launch**.
+3. When prompted, set **Limit** to the target host (for example `demo04`). This restricts the deployment to just that host. Leave it blank (or `*`) to target the whole inventory.
+4. Click **Next**, review the **Preview**, and launch the job.
+5. Follow the job output in AWX to confirm the deployment completed successfully.
+
+![Launching the EIC Phoebus template and providing the target host](screenshots/AWX_Phoebus_Template_launch.png)
+
+---
+
+## Ansible CLI (testing and debugging)
+
+> **Note:** For routine deployments, prefer the **AWX** method above. The command-line workflow below is preserved for testing, debugging, and developing the underlying roles and playbooks.
+
+### Ansible Configuration and Usage
 
 ### 1. Ansible Controller: demo01.eic.bnl.gov
 
