@@ -53,7 +53,7 @@ The key's randomart image is:
 On your web browser go to your github account settings and select "SSH and GPG Keys". 
 ![image](keys.png)
 
-Press the green button to add a new SSH key. In the terminal find the file where the key was saved. In this example: /home/jmaldonad/.ssh/id_ed25519. Copy the key from that file into the github prompt in the browser. Save this and you should have a key now in your list.
+Press the green button to add a new SSH key. In the terminal find the file where the key was saved. In this example: /home/jmaldonad/.ssh/id_ed25519.pub. Copy the key from that file into the github prompt in the browser. Save this and you should have a key now in your list.
 To access private organizations, like eicorg authenticate this key. You will have to have two factor authentication set up and enter a code.
 ![image](auth.png)
 

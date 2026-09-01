@@ -1,0 +1,139 @@
+========== Slide 2 ===========================================================
+Development of device support for EPICS software infrastructure is challenging 
+process, it requires in-depth knowledge of EPICS device drivers, database 
+records, IOC toolchain and EPICS GUI. 
+
+In this talk I will present a way to quickly develop EPIC PVAccess support for 
+harddware device. It could be off-the-shelf device or microcontroller-based 
+device or custom hardware with CPU core.
+
+The motivations is to provide set of C/C++ functions to build simple point-to 
+point server.
+The server provides full introspection on supported device patrameters.
+Using p4p Python wrapper of PVAccess it makes it possible to automatically 
+generate PVAccess IOC.
+
+The full system should be able to run standalone on small platform like 
+Rapspberry Pi.
+
+========== Slide 3 ===========================================================
+The Hardware Abstraction Server runs main C/C++ program, which has access to 
+device resources, it could be register address space, or system requests.
+The HABS hosts parameters, which reflect devices resources.
+Parameters have mandatory properties
+- Value (scalar, vector, …)
+● Type
+● Timestamp
+● Feature bits
+● Description
+as well as user-defined properties
+
+For simplicity, the HABS supports only 4 requests from client side:
+- info, which provide full information on parameter, or device itself.
+- get.
+- set.
+- run. This request is used to start/stop continuous measurements.
+
+========== Slide 4 ===========================================================
+In traditional approach with custom hardware, an engineer has to adjust the 
+firmware to comply with a device driver (e.g. pscdrv). The driver itself 
+resides on a host and it is linked to IOC.
+The EPICS records needs to be created according to exposed resources of the 
+device.
+This all requires in-depth knowledge of the  
+- EPICS device drivers,
+● database records,
+● IOC toolchain and
+● EPICS GUI
+
+========== Slide 5 ===========================================================
+The HABS could be implemented in two ways.
+1) When firmware cannot be modified (e.g. device is off-the-shelf) the HABS is running on a workstation, it communicates with the device using proper interface.
+The client IOC communicates with server using IPC transport.
+
+2) The HABS could be embedded in the device hardware. The client IOC is running on a workstation, connecting to HABS using network or serial transport.
+
+========== Slide 6 ===========================================================
+The HABS provides set of C++ functions and headers, which should be linked to main() program.
+● init(): to initialize the set of published parameters
+and bind them to program variables.
+● update(): called in the main loop to update
+parameters and respond to requests.
+
+Transport module is part of HABS.
+Transport protocols supported:
+✔ IPC Message Queue
+In development:
+● RS232
+● UDP
+● TCP-IP
+
+Data format of client communication is CBOR:
+● binary JSON,
+● self describing,
+● very compact,
+● standardized (RFC 8949),
+● widely used in IOT
+
+========== Slide 7 ===========================================================
+Software components
+Headers:
+● pv.h - creation of parameters
+Functions:
+● p2plant.cpp - message parsing
+● transport.cpp - communication with client
+Library:
+● libtinycbor.a - CBOR encoding. Public release from Intel.
+
+========== Slide 8 ===========================================================
+Here is an example how to create 3 parameters and bind them to program 
+variables. Parametrs are: 
+run (string), 
+adc_reclen (scalar) and 
+adcs (2D vector of channels and samples).
+
+The class PV has folloving members:
+1) name, 2) description, 3) Type, 4) featureBits.
+Additional properties could be added like legalValues, operational limits etc.
+
+The member function PV.set() binds the parameter value to program variables or 
+to register address area.
+
+Letter M in featureBits indicates that parameters will be streamed to client 
+when run is started.
+
+========== Slide 9 ===========================================================
+The Python interface to HABS is available. It is used in HABS-IOC and it is 
+very helpful during device debugging and tuning.
+
+Several request could be combined in one transaction.
+Transaction returns dictionary of replies.
+The get request always returns dictionary.
+
+========== Slide 10 ==========================================================
+The client IOC is written in Python using p4p wrapper for PVAccess server. 
+Using info requests it obtains metadata of all parameters, supported by the 
+HABS and creates corresponding PVs. 
+The module could be installed with PIP.
+
+The companion modules pypeto, pvplot and apstrim can be used for standalone 
+GUI, plotting and data logging of IOC parameters.
+
+========== Slide 11 ==========================================================
+Summary
+
+========== Slide 12 ==========================================================
+The sources are on Gihub.
+
+========== Slide 13 ==========================================================
+This approach was used to provide support for testing of 4-channel ALS-U 
+Power Supply Controllers, developed by NSLS and they supposed to be used in 
+Rapid Cycling Cyclotron at EIC.
+
+EPICS support was developed in 1 week, provided that very little documentation 
+were available. We were provided with bench testing C program. 
+This program were sligtly modified to become truly HABS.
+
+The whole system including GUI and plotting is running standalone on 
+Raspberry 5.
+

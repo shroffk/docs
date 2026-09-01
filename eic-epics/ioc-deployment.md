@@ -1,24 +1,24 @@
 ## GitHub IOC Repository Structure
 
-- On GitHub, under the `eicorg` account, the IOCs are hosted under the controls team. Here is the path: https://github.com/orgs/eicorg/teams/controls/repositories.
-- Any IOC repository name has the pattern: `ioc-<system name>`.
+- On GitHub, under the `eicorg` account, the IOCs are hosted under the controls/epics team. Here is the path: https://github.com/orgs/eicorg/teams/epics/repositories.
+- Any IOC repository name has the pattern: `<brand>-<type>-ioc`.
 
 - Before creating/pushing any IOC repository, ensure that you have the following directory structure:
 ```
 .
-└──ioc-<system name>
+└──<name>-ioc
+    ├── configure
     ├── <system name>App
     ├── iocBoot
     ├── Makefile
     └── .gitignore
 ```
 
-- Put all source code for the IOC inside `<system name>App` and startup files with OPIs under `iocBoot`.
+- Put all source code for the IOC inside `<name>App` and startup files with OPIs under `iocBoot`.
 
-- iocBoot can have multiple sub-directories each corresponding to each user group.
+- iocBoot can have template IOC configuration files and prototype OPI files.
 
-- A later version of iocBoot directory inside the IOC repository (on GitHub) will contain a version of cookiecutter (Jinja) compatible `st.cmd` and `config` files (for manage-iocs) so that it can be deployed using web/GUI for each user.
-
+- iocBoot directory inside the IOC repository (on GitHub) can contain `st.cmd` and `OPI` files using macros so that it can be deployed using web/GUI for each user.
 
 - The content of the `.gitignore` will look like the following one, so that all auto-generated files are excluded from the repository:
 ```
@@ -55,34 +55,31 @@ O.*/
 
 ## EPICS IOC Deployment Plan
 
-- EPICS IOC apps, iocBoot and OPIs are hosted on GitHub. They are released and deployed through GitHub actions or user interface (web or GUI) only, so that we have all releases synchronized with GitHub. Until GitHub actions or user interface is set up, we need to do it manually.
+- EPICS IOC apps, `iocBoot` and `OPIs` are hosted on GitHub. They are released and deployed through GitHub CI/CD or web interface only, so that we have all releases synchronized with GitHub. Until GitHub CI/CD or web interface is set up, we need to do it manually.
 
-- On the EIC VMs, the central NFS directory for deployment is under `/eic/release/epics`. Under this NFS mounted central directory, we have
+- For the deployment, we created a central directory (called `modules`) to have all IOC apps or modules that are not part of EPICS installation.
+
+- For each deployed IOC instance, we need to set TOP from `envPaths` and add `cd ${TOP}` at the beginning of the st.cmd file and `cd ${IOC}` at the end of the st.cmd file (before init call). We also need a `config` file for the `manage-iocs` utility.
+
+- On EIC VM, the central NFS directory for deployment is under `/eic/epics`. Under this NFS-mounted central directory, we have
 
 ```
-.
-└── epics
-    ├── ioc
-    ├── iocBoot
-    └── opi
+release
+ └── epics
+     ├── modules
+     ├── iocs (aka iocBoot)
+     └── apps
 ```
 
-- Inside, the `iocBoot` and `opi` directories, new directories can be created that reflect the tree structure of the users or group.
+- `iocs` is same as `iocBoot`. Here we just put each iocBoot instances. The `iocs` directory is also hosted on GitHub at `https://github.com/eicorg/iocs` under the team controls/epics. The idea is individual IOC module or apps repository can have template iocBoot and OPI files. But all production iocBoot instances and OPI files are under version control using separate mono repositories.  OPI screens are saved under individual ioc. 
 
-- For any EPICS IOC app development, the users might want to save the local source repository under `/eic/source/epics`. For each IOC app, i) IOC app source code, ii) iocBoot and iii) OPI files can be kept under one repository. However, the most important thing is to keep the local repository synchronized with the GitHub repository.
+- If non-NFS deployment is preferred, use the `/epics/iocs` directory.
 
-- The IOCs are be started/stopped/monitored using the `manage-iocs` utility or an user interface (on top of manage-iocs).
+- While we are using monorepo for `iocs` (production IOC instances) and OPI directories, all homegrown IOC apps have their own individual repository. Thus `modules` is a polyrepo.
 
-- Because we maintain an independent cental `iocBoot` directory (which is not next to the apps directory) as shown in the above diagram, we need to copy the auto-generated `db` and `dbd` directories inside `iocBoot/<ioc name>` directory. Also, we need to set the `$TOP` variable inside `envPaths` to point to the `iocBoot/<ioc name>` directory. Similarly, we need to copy the binary IOC executable to a central directory (here `ioc`). All of these should be made part of the deployment script. This way each user will have their own `iocBoot/<ioc name>` directory, but they will be using the same IOC executable. Thus each user/group will have the capability to modify the database file on the fly to fit their needs. `<ioc name >` in the `iocBoot/<ioc name>` should contain a unique name like `<user_name-hardware_name>`.
+- The IOCs are started/stopped/monitored using the `manage-iocs` utility or an user interface (on top of `manage-iocs`).
 
-- The `iocBoot/<ioc name>` directory will contain a `config` file for the `manage-iocs` utility.
+- `manage-iocs` utility is configured to control IOCs under two locations `/epics/iocs` (local to the host) and `/eic/epics/iocs` (NFS mounted).
 
-- Thus the build script (or GitHub action) will do the following:
-	- Run make for the source IOC code after downloading it from GitHub.
-	- Copy IOC executable to a central location
-	- Copy `iocBoot` with `db` and `dbd` directories to a central location separated by the user name.
-	- Create a `config` file to be used with the manage-iocs utility under the `iocBoot/<ioc name>` directory.
-	- Copy the OPI to a central location separated by the user name
-	- Now you should be able to install/start/stop the IOC using manage-iocs.
+- Check the deployed IOC examples under `/eic/epics/` and also the corresponding eicorg GitHub repositories for further details.
 
-- A later version of iocBoot directory inside the IOC repository (on GitHub) will contain a version of cookiecutter (Jinja) compatible `st.cmd` and `config` files (for manage-iocs) so that it can be deployed using web/GUI for each user.
