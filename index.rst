@@ -15,6 +15,7 @@ Welcome to EIC Control's documentation!
    eic-deployment/index*
    eic-epics/index*
    ado-epics-bridge/index*
+   Operations-Support/index*
 
 ..
    Indices and tables
